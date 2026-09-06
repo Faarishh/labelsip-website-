@@ -1,0 +1,1481 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #02060b;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: introHide 1s ease forwards;
+    animation-delay: 3s;
+}
+
+.intro-logo {
+    font-size: 55px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    color: #ffffff;
+
+    animation: logoReveal 2s ease;
+}
+
+.intro-company {
+    margin-top: 15px;
+    color: #00aaff;
+    font-size: 12px;
+    letter-spacing: 5px;
+
+    animation: logoReveal 2s ease;
+}
+
+@keyframes logoReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes introHide {
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(2, 6, 11, 0.75);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #00aaff;
+}
+
+.header nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header nav a {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #8c99a6;
+    transition: 0.3s;
+}
+
+.header nav a:hover {
+    color: #00aaff;
+}
+
+.quote-btn {
+    border: 1px solid #008cff;
+    padding: 11px 18px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.quote-btn:hover {
+    background: #008cff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    padding: 100px 7% 60px;
+
+    position: relative;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.eyebrow {
+    color: #00aaff;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 6vw, 85px);
+    line-height: 0.95;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: #00aaff;
+}
+
+.hero-description {
+    color: #8c99a6;
+    max-width: 520px;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.primary-btn {
+    display: inline-block;
+
+    background: #008cff;
+
+    padding: 14px 22px;
+
+    border: none;
+
+    color: white;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #00aaff;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    border: 1px solid #35414d;
+
+    padding: 14px 22px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   BOTTLE AREA
+========================= */
+
+.hero-bottle-area {
+    height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.glow {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: #008cff;
+
+    filter: blur(120px);
+
+    opacity: 0.16;
+}
+
+
+/* =========================
+   BOTTLE
+========================= */
+
+.bottle {
+    width: 190px;
+    height: 475px;
+
+    position: relative;
+
+    z-index: 10;
+
+    animation: floatBottle 5s ease-in-out infinite;
+
+    cursor: grab;
+
+    transform-style: preserve-3d;
+}
+
+@keyframes floatBottle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+.cap {
+    position: absolute;
+
+    top: 0;
+    left: 35px;
+
+    width: 120px;
+    height: 40px;
+
+    border-radius: 8px 8px 4px 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #777,
+            #ffffff,
+            #999
+        );
+
+    z-index: 5;
+}
+
+.bottle-neck {
+    position: absolute;
+
+    top: 35px;
+    left: 42px;
+
+    width: 106px;
+    height: 75px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20,70,100,0.7),
+            rgba(100,190,230,0.4),
+            rgba(20,70,100,0.7)
+        );
+
+    border-left: 1px solid rgba(255,255,255,0.15);
+    border-right: 1px solid rgba(255,255,255,0.15);
+
+    z-index: 2;
+}
+
+.bottle-body {
+    position: absolute;
+
+    top: 97px;
+    left: 0;
+
+    width: 190px;
+    height: 380px;
+
+    border-radius: 48px 48px 30px 30px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,70,110,0.75),
+            rgba(40,140,190,0.45),
+            rgba(0,65,105,0.75)
+        );
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+        inset 12px 0 25px rgba(255,255,255,0.08),
+        inset -12px 0 25px rgba(0,0,0,0.25),
+        0 0 35px rgba(0,150,255,0.18);
+
+    transform-style: preserve-3d;
+}
+
+.water-inside {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(80,180,230,0.1),
+            rgba(0,110,170,0.45)
+        );
+}
+
+
+/* =========================
+   BOTTLE SHINE
+========================= */
+
+.bottle-shine {
+    position: absolute;
+
+    top: -20%;
+    left: 48%;
+
+    width: 25px;
+    height: 140%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.38),
+            transparent
+        );
+
+    transform: rotate(7deg);
+
+    filter: blur(3px);
+
+    animation: shineMove 5s ease-in-out infinite;
+
+    z-index: 60;
+
+    pointer-events: none;
+}
+
+@keyframes shineMove {
+
+    0% {
+        left: 35%;
+        opacity: 0.2;
+    }
+
+    50% {
+        left: 60%;
+        opacity: 0.7;
+    }
+
+    100% {
+        left: 35%;
+        opacity: 0.2;
+    }
+}
+
+.bottle-highlight {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 7px;
+    height: 250px;
+
+    background: rgba(255,255,255,0.16);
+
+    border-radius: 50%;
+
+    filter: blur(3px);
+
+    z-index: 70;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   CURVED 3D LABEL
+================================================== */
+
+.label {
+    position: absolute;
+
+    top: 120px;
+    left: 7px;
+
+    width: calc(100% - 14px);
+    height: 138px;
+
+    overflow: hidden;
+
+    z-index: 20;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    /*
+       Curved label sides
+    */
+
+    box-shadow:
+        inset 18px 0 25px rgba(0,0,0,0.15),
+        inset -18px 0 25px rgba(0,0,0,0.15),
+        0 5px 15px rgba(0,0,0,0.25);
+
+    transform-style: preserve-3d;
+}
+
+
+/* Default LABELSIP */
+
+#defaultLabel {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    color: #008dcc;
+
+    border-radius: 18px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    font-size: 22px;
+
+    z-index: 10;
+}
+
+
+/* Uploaded COMPLETE label */
+
+#uploadedImage {
+    display: none;
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    /*
+       IMPORTANT:
+       100% width keeps the complete uploaded
+       label visible. No cropping.
+    */
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    object-position: center;
+
+    z-index: 30;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    filter:
+        contrast(1.03)
+        brightness(1);
+
+    /*
+       Darker curved edges
+    */
+
+    box-shadow:
+        inset 18px 0 25px rgba(0,0,0,0.16),
+        inset -18px 0 25px rgba(0,0,0,0.16);
+}
+
+
+/* Curved side shading ABOVE uploaded label */
+
+.label::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.15) 0%,
+            transparent 13%,
+            transparent 87%,
+            rgba(0,0,0,0.15) 100%
+        );
+
+    z-index: 40;
+}
+
+
+/* Moving label reflection */
+
+.label::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 28%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation: labelShine 4s infinite;
+
+    z-index: 50;
+
+    pointer-events: none;
+}
+
+@keyframes labelShine {
+
+    0% {
+        left: -80%;
+    }
+
+    45% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+}
+
+
+/* Bottle shine must stay behind label */
+
+.bottle-body .bottle-shine {
+    z-index: 15;
+}
+
+
+/* =========================
+   BOTTLE SHADOW
+========================= */
+
+.bottle-shadow {
+    position: absolute;
+
+    bottom: 45px;
+
+    width: 180px;
+    height: 25px;
+
+    background: rgba(0,0,0,0.65);
+
+    filter: blur(15px);
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   BUBBLES
+========================= */
+
+.bubbles {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+.bubbles span {
+    position: absolute;
+
+    bottom: 50px;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(180,230,255,0.5);
+
+    animation: bubbleRise 6s infinite ease-in;
+}
+
+.bubbles span:nth-child(1) {
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.bubbles span:nth-child(2) {
+    left: 40%;
+    animation-delay: 3s;
+}
+
+.bubbles span:nth-child(3) {
+    left: 60%;
+    animation-delay: 2s;
+}
+
+.bubbles span:nth-child(4) {
+    left: 75%;
+    animation-delay: 4s;
+}
+
+.bubbles span:nth-child(5) {
+    left: 30%;
+    animation-delay: 5s;
+}
+
+.bubbles span:nth-child(6) {
+    left: 65%;
+    animation-delay: 1.5s;
+}
+
+.bubbles span:nth-child(7) {
+    left: 50%;
+    animation-delay: 3.5s;
+}
+
+.bubbles span:nth-child(8) {
+    left: 80%;
+    animation-delay: 2.5s;
+}
+
+.bubbles span:nth-child(9) {
+    left: 20%;
+    animation-delay: 4.5s;
+}
+
+.bubbles span:nth-child(10) {
+    left: 55%;
+    animation-delay: 5.5s;
+}
+
+@keyframes bubbleRise {
+
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-350px);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+.water-particles {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.water-particles i {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #5bd4ff;
+
+    animation: particleRise 7s infinite ease-in-out;
+}
+
+.water-particles i:nth-child(1) {
+    left: 25%;
+    top: 60%;
+}
+
+.water-particles i:nth-child(2) {
+    left: 70%;
+    top: 65%;
+}
+
+.water-particles i:nth-child(3) {
+    left: 55%;
+    top: 50%;
+}
+
+.water-particles i:nth-child(4) {
+    left: 40%;
+    top: 70%;
+}
+
+.water-particles i:nth-child(5) {
+    left: 80%;
+    top: 55%;
+}
+
+.water-particles i:nth-child(6) {
+    left: 30%;
+    top: 75%;
+}
+
+.water-particles i:nth-child(7) {
+    left: 65%;
+    top: 80%;
+}
+
+.water-particles i:nth-child(8) {
+    left: 45%;
+    top: 45%;
+}
+
+.water-particles i:nth-child(9) {
+    left: 75%;
+    top: 72%;
+}
+
+.water-particles i:nth-child(10) {
+    left: 20%;
+    top: 50%;
+}
+
+@keyframes particleRise {
+
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-150px);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 120px 7%;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 60px;
+}
+
+.section-heading h2 {
+    font-size: clamp(35px, 5vw, 65px);
+    margin-bottom: 18px;
+}
+
+.section-heading p:last-child {
+    color: #84919d;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CUSTOMIZER
+========================= */
+
+.customizer {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.custom-preview {
+    min-height: 550px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,140,255,0.13),
+            transparent 65%
+        );
+
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.preview-bottle {
+    width: 145px;
+    height: 390px;
+
+    position: relative;
+}
+
+.preview-cap {
+    position: absolute;
+
+    top: 0;
+    left: 27px;
+
+    width: 91px;
+    height: 32px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #777,
+            white,
+            #999
+        );
+
+    border-radius: 7px;
+
+    z-index: 5;
+}
+
+.preview-neck {
+    position: absolute;
+
+    top: 28px;
+    left: 32px;
+
+    width: 81px;
+    height: 60px;
+
+    background: rgba(30,120,160,0.6);
+}
+
+.preview-body {
+    position: absolute;
+
+    top: 78px;
+
+    width: 145px;
+    height: 312px;
+
+    border-radius: 35px 35px 25px 25px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,70,110,0.75),
+            rgba(40,140,190,0.45),
+            rgba(0,65,105,0.75)
+        );
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+        inset 10px 0 20px rgba(255,255,255,0.08),
+        inset -10px 0 20px rgba(0,0,0,0.25);
+}
+
+.preview-label {
+    position: absolute;
+
+    top: 100px;
+    left: 6px;
+
+    width: calc(100% - 12px);
+    height: 115px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: white;
+
+    box-shadow:
+        inset 14px 0 20px rgba(0,0,0,0.13),
+        inset -14px 0 20px rgba(0,0,0,0.13);
+
+    z-index: 20;
+}
+
+#previewDefault {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #008dcc;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    background: white;
+
+    z-index: 10;
+}
+
+#previewImage {
+    display: none;
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    border-radius: 15px;
+
+    background: white;
+
+    z-index: 30;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+.control-group h3 {
+    margin-bottom: 15px;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+.button-row {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.size-btn,
+.color-btn {
+    background: transparent;
+
+    border: 1px solid #33404d;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    transition: 0.3s;
+}
+
+.size-btn.active,
+.color-btn.active,
+.size-btn:hover,
+.color-btn:hover {
+    border-color: #00aaff;
+
+    background: rgba(0,140,255,0.12);
+
+    color: #00aaff;
+}
+
+.upload-box {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 80px;
+
+    border: 1px dashed #3d4c59;
+
+    cursor: pointer;
+
+    color: #00aaff;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #00aaff;
+
+    background: rgba(0,140,255,0.05);
+}
+
+.upload-box input {
+    display: none;
+}
+
+#fileStatus {
+    margin-top: 10px;
+
+    color: #73818d;
+
+    font-size: 11px;
+}
+
+.selected-info {
+    display: flex;
+
+    gap: 30px;
+
+    color: #7e8b96;
+
+    font-size: 11px;
+}
+
+.selected-info strong {
+    color: #00aaff;
+}
+
+
+/* =========================
+   BUSINESS
+========================= */
+
+.business-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.business-card {
+    padding: 35px 25px;
+
+    min-height: 250px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.01)
+        );
+
+    transition: 0.4s;
+}
+
+.business-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0,170,255,0.4);
+}
+
+.card-number {
+    color: #00aaff;
+
+    font-size: 12px;
+
+    margin-bottom: 50px;
+}
+
+.business-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+.business-card p {
+    color: #76838e;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   PROCESS
+========================= */
+
+.process-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.process-card {
+    padding: 35px;
+
+    border-top: 1px solid #008cff;
+}
+
+.process-card span {
+    color: #00aaff;
+
+    font-size: 12px;
+}
+
+.process-card h3 {
+    margin: 30px 0 15px;
+
+    font-size: 22px;
+}
+
+.process-card p {
+    color: #788691;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   WHY
+========================= */
+
+.why-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.why-item {
+    padding: 35px;
+
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.why-icon {
+    color: #00aaff;
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+}
+
+.why-item h3 {
+    margin-bottom: 12px;
+
+    font-size: 16px;
+}
+
+.why-item p {
+    color: #788691;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,120,220,0.1),
+            transparent 60%
+        );
+}
+
+.quote-form {
+    max-width: 750px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+    width: 100%;
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid #27333d;
+
+    color: white;
+
+    padding: 16px;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+    border-color: #008cff;
+}
+
+.quote-form textarea {
+    grid-column: 1 / -1;
+
+    resize: vertical;
+}
+
+.quote-form button {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-float {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    background: #18d46b;
+
+    color: white;
+
+    padding: 13px 18px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    z-index: 900;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 60px 7%;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+
+    text-align: center;
+
+    color: #65717c;
+}
+
+.footer-logo {
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.footer-logo span {
+    color: #00aaff;
+}
+
+footer p {
+    font-size: 11px;
+}
+
+.copyright {
+    margin-top: 25px;
+
+    opacity: 0.5;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .header nav {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding-top: 120px;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-bottle-area {
+        height: 520px;
+    }
+
+    .customizer {
+        grid-template-columns: 1fr;
+    }
+
+    .business-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .intro-logo {
+        font-si
